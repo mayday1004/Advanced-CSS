@@ -99,6 +99,27 @@ body {
           flex: 1;
 }
 
+.detail {
+  font-size: 1.4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 4.5rem;
+  background-color: var(--color-grey-light-1);
+  border-bottom: var(--line);
+}
+
+.description {
+  background-color: #fff;
+  -webkit-box-shadow: var(--shadow-light);
+          box-shadow: var(--shadow-light);
+  padding: 3rem;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 60%;
+          flex: 0 0 60%;
+  margin-right: 4.5rem;
+}
+
 .logo {
   height: 3.25rem;
   margin-left: 2rem;
@@ -404,6 +425,78 @@ body {
   outline: none;
   -webkit-animation: pulsate 1s infinite;
           animation: pulsate 1s infinite;
+}
+
+.paragraph:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
+
+.list {
+  list-style: none;
+  margin: 3rem 0;
+  padding: 3rem 0;
+  border-top: var(--line);
+  border-bottom: var(--line);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.list__item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+  margin-bottom: 0.7rem;
+}
+.list__item::before {
+  content: "";
+  display: inline-block;
+  height: 1rem;
+  width: 1rem;
+  margin-right: 0.7rem;
+  background-image: url(../img/chevron-thin-right.svg);
+  background-size: cover;
+}
+@supports ((-webkit-mask-image: url()) or (mask-image: url())) {
+  .list__item::before {
+    background-color: var(--color-primary);
+    -webkit-mask-image: url(../img/chevron-thin-right.svg);
+            mask-image: url(../img/chevron-thin-right.svg);
+    -webkit-mask-size: cover;
+            mask-size: cover;
+    background-image: none;
+  }
+}
+
+.recommend {
+  font-size: 1.3rem;
+  color: var(--color-grey-dark-3);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.recommend__count {
+  margin-right: auto;
+}
+.recommend__friends {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.recommend__photo {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  border: 3px solid #fff;
+}
+.recommend__photo:not(:last-child) {
+  margin-right: -2rem;
 }
 
 @-webkit-keyframes pulsate {
