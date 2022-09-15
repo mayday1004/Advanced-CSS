@@ -17,6 +17,7 @@
 
         <form action="#" class="search">
           <input type="text" class="search__input" placeholder="Search hotels" />
+          <ul class="search__showList"></ul>
           <button class="search__button">
             <svg class="search__icon">
               <use xlink:href="img/sprite.svg#icon-magnifying-glass"></use>
@@ -36,10 +37,57 @@
               <use xlink:href="img/sprite.svg#icon-chat"></use>
             </svg>
             <span class="user-nav__notification">13</span>
+            <!-- ? extra 1 -->
+            <ul class="user-nav__user-menu-messages">
+              <div class="pulsating-circle"></div>
+              <li class="user-nav__message">You have 13 messages!</li>
+              <li class="user-nav__message">
+                <img src="img/user-6.jpg" alt="User 1" class="review__photo" />
+                <span> Lucy and 12 others</span>
+              </li>
+            </ul>
+            <!-- ? extra 1 -->
           </div>
+
           <div class="user-nav__user">
             <img src="img/user.png" alt="User photo" class="user-nav__user-photo" />
             <span class="user-nav__user-name">May</span>
+            <!-- ? extra 2 -->
+            <ul class="user-nav__user-menu">
+              <li class="user-nav__user-option user-nav__user-option--active">
+                <a href="#" class="user-nav__user-link">
+                  <svg class="user-nav__user-icon">
+                    <use xlink:href="img/sprite.svg#icon-cog"></use>
+                  </svg>
+                  <span>Account Settings</span>
+                </a>
+              </li>
+              <li class="user-nav__user-option">
+                <a href="#" class="user-nav__user-link">
+                  <svg class="user-nav__user-icon">
+                    <use xlink:href="img/sprite.svg#icon-book"></use>
+                  </svg>
+                  <span>My History</span>
+                </a>
+              </li>
+              <li class="user-nav__user-option">
+                <a href="#" class="user-nav__user-link">
+                  <svg class="user-nav__user-icon">
+                    <use xlink:href="img/sprite.svg#icon-bug"></use>
+                  </svg>
+                  <span>Report a Bug</span>
+                </a>
+              </li>
+              <li class="user-nav__user-option">
+                <a href="#" class="user-nav__user-link">
+                  <svg class="user-nav__user-icon">
+                    <use xlink:href="img/sprite.svg#icon-switch"></use>
+                  </svg>
+                  <span>Logout</span>
+                </a>
+              </li>
+            </ul>
+            <!-- ? extra 2 -->
           </div>
         </nav>
       </header>
@@ -88,12 +136,15 @@
           <!-- !主要內容的圖片展示區 -->
           <div class="gallery">
             <figure class="gallery__item">
+              <div class="gallery__photo-cover">Romantic escape</div>
               <img src="img/hotel-1.jpg" alt="Photo of hotel 1" class="gallery__photo" />
             </figure>
             <figure class="gallery__item">
+              <div class="gallery__photo-cover">Private pool</div>
               <img src="img/hotel-2.jpg" alt="Photo of hotel 2" class="gallery__photo" />
             </figure>
             <figure class="gallery__item">
+              <div class="gallery__photo-cover">Close to nature</div>
               <img src="img/hotel-3.jpg" alt="Photo of hotel 3" class="gallery__photo" />
             </figure>
           </div>
@@ -211,5 +262,6 @@
         </main>
       </div>
     </div>
+    <script src="./script.js"></script>
   </body>
 </html>

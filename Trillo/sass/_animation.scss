@@ -14,3 +14,25 @@
     box-shadow: none;
   }
 }
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.63);
+  }
+  80%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-dot {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}

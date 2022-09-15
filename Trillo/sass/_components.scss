@@ -13,6 +13,9 @@
   align-items: center;
   justify-content: center;
 
+  //for extra setup
+  position: relative;
+
   @media only screen and (max-width: $bp-smallest) {
     order: 1;
     flex: 0 0 100%;
@@ -47,6 +50,25 @@
     background-color: var(--color-grey-light-3);
   }
 
+  &__showList {
+    width: 90%;
+    background-color: var(--color-grey-light-1);
+    position: absolute;
+    top: 110%;
+    z-index: 100;
+    list-style: none;
+    display: none;
+  }
+
+  &__list-item {
+    padding: 1rem 2rem;
+    &:hover {
+      cursor: pointer;
+      background-color: var(--color-grey-dark-1);
+      color: var(--color-primary);
+    }
+  }
+
   &__button {
     border: none;
     background-color: var(--color-grey-light-2);
@@ -70,9 +92,10 @@
 // USER NAVIGATION
 .user-nav {
   align-self: stretch;
-
   display: flex;
   align-items: center;
+  //for extra setup
+  position: relative;
 
   & > * {
     padding: 0 2rem;
@@ -91,8 +114,8 @@
   }
 
   &__icon {
-    height: 2.25rem;
-    width: 2.25rem;
+    height: 2.5rem;
+    width: 2.5rem;
     fill: var(--color-grey-dark-2);
   }
 
@@ -116,6 +139,156 @@
     height: 3.75rem;
     border-radius: 50%;
     margin-right: 1rem;
+  }
+  // extra setup challenge
+  &__user-menu,
+  &__user-menu-messages {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: var(--color-grey-dark-1);
+    color: #fff;
+    transition: transform 0.2s, height 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.1s;
+    z-index: 100;
+  }
+
+  &__user-menu-messages {
+    border-radius: 10px;
+    min-width: 22rem;
+    right: -100%;
+    list-style: none;
+    font-size: 1.2rem;
+
+    @media only screen and (max-width: $bp-medium) {
+      width: 25rem;
+      background-color: var(--color-grey-dark-3);
+    }
+  }
+
+  &__user:hover &__user-menu {
+    height: auto;
+  }
+
+  &__icon-box:hover &__user-menu-messages {
+    height: auto;
+  }
+
+  &__message {
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+    margin: 0 0.5rem;
+    border-bottom: var(--line);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & img {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    &:last-child {
+      border-bottom: none;
+      padding: 1rem;
+      font-weight: 800;
+      transition: all 0.2s;
+
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  &__user-option {
+    list-style: none;
+    padding: 1rem 2rem;
+    position: relative;
+
+    &:first-child {
+      background-color: var(--color-primary);
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &__user-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color-primary);
+    transform: scaleY(0);
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.1s;
+  }
+
+  &__user-option:hover::before,
+  &__user-option--active::before {
+    transform: scaleY(1);
+    // On expand take full width
+    width: 100%;
+  }
+
+  &__user-option:active::before {
+    background-color: var(--color-primary-light);
+  }
+
+  &__user-link {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  &__user-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-right: 2rem;
+    fill: currentColor;
+  }
+}
+
+.pulsating-circle {
+  position: absolute;
+  left: 10%;
+  top: 23%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 0.7rem;
+  height: 0.7rem;
+
+  &:before {
+    content: '';
+    position: relative;
+    display: block;
+    width: 300%;
+    height: 300%;
+    box-sizing: border-box;
+    margin-left: -100%;
+    margin-top: -100%;
+    border-radius: 45px;
+    background-color: var(--color-primary);
+    animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-grey-dark-1);
+    border-radius: 15px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    animation: pulse-dot 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) -0.4s infinite;
   }
 }
 
@@ -224,10 +397,31 @@
 //圖片展示區
 .gallery {
   display: flex;
+  &__item {
+    position: relative;
+  }
+
+  &__item:hover &__photo-cover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--color-primary);
+    height: 100%;
+  }
 
   &__photo {
     width: 100%;
     display: block;
+  }
+  &__photo-cover {
+    color: transparent;
+    position: absolute;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    transition: all 0.5s;
   }
 }
 
