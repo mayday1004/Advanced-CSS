@@ -1,0 +1,190 @@
+:root {
+  --color-primary: #c69963;
+  --color-primary-dark: #b28451;
+  --color-secondary: #101d2c;
+  --color-grey-light-1: #f9f7f6;
+  --color-grey-light-2: #aaa;
+  --color-grey-dark-1: #54483a;
+  --color-grey-dark-2: #6d5d4b;
+  --font-primary: "Nunito", sans-serif;
+  --font-display: "Josefin Sans", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--color-grey-dark-2);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 80vh -webkit-min-content 40vw repeat(3, -webkit-min-content);
+  grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(-webkit-min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+}
+
+.heading-4, .heading-3, .heading-2, .heading-1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+.heading-1 {
+  font-size: 4.5rem;
+  color: var(--color-grey-light-1);
+  line-height: 1;
+}
+
+.heading-2 {
+  font-size: 4rem;
+  font-style: italic;
+  line-height: 1;
+}
+.heading-2--light {
+  color: var(--color-grey-light-1);
+}
+.heading-2--dark {
+  color: var(--color-grey-dark-1);
+}
+
+.heading-3 {
+  font-size: 1.6rem;
+  color: var(--color-primary);
+  text-transform: uppercase;
+}
+
+.heading-4 {
+  font-size: 1.9rem;
+}
+.heading-4--light {
+  color: var(--color-grey-light-1);
+}
+.heading-4--dark {
+  color: var(--color-grey-dark-1);
+}
+
+.btn {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  padding: 1.8rem 3rem;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.btn:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.mb-sm {
+  margin-bottom: 2rem;
+}
+
+.mb-md {
+  margin-bottom: 3rem;
+}
+
+.mb-lg {
+  margin-bottom: 4rem;
+}
+
+.mb-hg {
+  margin-bottom: 8rem;
+}
+
+.sidebar {
+  background-color: var(--color-primary);
+  grid-column: sidebar-start/sidebar-end;
+  grid-row: 1/-1;
+}
+
+.header {
+  background-color: var(--color-grey-dark-1);
+  grid-column: full-start/col-start 6;
+  grid-row: 1/2;
+}
+
+.realtors {
+  background-color: var(--color-secondary);
+  grid-column: col-start 6/full-end;
+  grid-row: 1/2;
+}
+
+.features {
+  grid-column: center-start/center-end;
+  margin: 15rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 6rem;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: -webkit-min-content 1fr;
+  grid-template-columns: min-content 1fr;
+  grid-row-gap: 1.5rem;
+  grid-column-gap: 2.5rem;
+}
+.feature__icon {
+  fill: var(--color-primary);
+  width: 4.5rem;
+  height: 4.5rem;
+  grid-row: 1/span 2;
+  -webkit-transform: translateY(-1rem);
+          transform: translateY(-1rem);
+}
+.feature__text {
+  font-size: 1.7rem;
+}
+
+.story__pictures {
+  background-color: var(--color-primary);
+  grid-column: full-start/col-start 4;
+  grid-row: 3/4;
+}
+.story__content {
+  background-color: var(--color-grey-light-1);
+  grid-column: col-start 4/full-end;
+  grid-row: 3/4;
+}
+
+.homes {
+  background-color: var(--color-secondary);
+  grid-column: center-start/center-end;
+  grid-row: 4/5;
+}
+
+.gallery {
+  background-color: var(--color-grey-dark-1);
+  grid-column: full-start/full-end;
+  grid-row: 5/6;
+}
+
+.footer {
+  background-color: var(--color-secondary);
+  grid-column: full-start/full-end;
+  grid-row: 6/7;
+}
